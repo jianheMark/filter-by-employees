@@ -5,9 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Application {
-
     public static void main(String[] args) {
-
         List<Employee> employees = new ArrayList<>();
 
         // Employee 1
@@ -41,16 +39,17 @@ public class Application {
 
         System.out.println("Filtered Employees...........");
 
-        System.out.println("Traditional way of doing it.");
+//        "Traditional way of filter out."
         List<Employee> filteredEmployees = new ArrayList<>();
         for(Employee employee : employees) {
             if( employee.getName().toLowerCase().startsWith("ji") && employee.getDepartment().equals(Department.FINANCE)) {
                 filteredEmployees.add(employee);
             }
         }
+
         System.out.println(filteredEmployees);
         System.out.println("............");
-        //filter out employee, based on name and department.
+        //filter out employee, based on name and department. Using Stream API.
         employees.stream()
                 .filter(employee -> employee.getName().toLowerCase().equals("jian"))
                 .filter(employee -> employee.getDepartment().equals(Department.FINANCE))
