@@ -1,7 +1,8 @@
-package dev.danvega;
+package jian.he;
 
 public enum Department {
     MARKETING,
     SALES,
-    ENGINEERING
+    ENGINEERING,
+    FINANCE
 }

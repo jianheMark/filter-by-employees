@@ -1,4 +1,4 @@
-package dev.danvega;
+package jian.he;
 
 public enum Type {
     LAPTOP,
@@ -6,5 +6,6 @@ public enum Type {
     DESK,
     CHAIR,
     KEYBOARD,
-    MOUSE
+    MOUSE,
+    DESKTOP
 }
