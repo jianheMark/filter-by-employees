@@ -41,24 +41,24 @@ public class Application {
 
         System.out.println("Filtered Employees...........");
 
-        // any time you find yourself iterating over a list to create a new list there is a better way
-//        List<Employee> filteredEmployees = new ArrayList<>();
-//        for(Employee employee : employees) {
-//            if( employee.getName().toLowerCase().equals("marcus") && employee.getDepartment().equals(Department.ENGINEERING)) {
-//                filteredEmployees.add(employee);
-//            }
-//        }
-
-//        employees.stream()
-//                .filter(employee -> employee.getName().toLowerCase().equals("marcus"))
-//                .filter(employee -> employee.getDepartment().equals(Department.ENGINEERING))
-//                .forEach(System.out::println);
-
-        employees.stream(
-                )
-//                .filter(employee -> employee.getName().toLowerCase().startsWith("marcus"))
-                .filter(employee -> employee.getAssets().stream().filter(asset -> asset.getType().equals(Type.MONITOR)).count() > 0)
+        System.out.println("Traditional way of doing it.");
+        List<Employee> filteredEmployees = new ArrayList<>();
+        for(Employee employee : employees) {
+            if( employee.getName().toLowerCase().startsWith("ji") && employee.getDepartment().equals(Department.FINANCE)) {
+                filteredEmployees.add(employee);
+            }
+        }
+        System.out.println(filteredEmployees);
+        System.out.println("............");
+        //filter out employee, based on name and department.
+        employees.stream()
+                .filter(employee -> employee.getName().toLowerCase().equals("jian"))
+                .filter(employee -> employee.getDepartment().equals(Department.FINANCE))
                 .forEach(System.out::println);
+        System.out.println("...................");// filter out more than one minitor.
+//        employees.stream()
+//                .filter(employee -> employee.getAssets().stream().filter(asset -> asset.getType().equals(Type.MONITOR)).count() > 0)
+//                .forEach(System.out::println);
 
         // source
         // intermediate operations
@@ -66,5 +66,6 @@ public class Application {
         List<Employee> engineering = employees.stream()
                 .filter(employee -> employee.getDepartment().equals(Department.ENGINEERING))
                 .collect(Collectors.toList());
+        System.out.println(engineering);
     }
 }
